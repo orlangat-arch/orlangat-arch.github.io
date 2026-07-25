@@ -282,6 +282,23 @@ button { font: inherit; cursor: pointer; }
 
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
+.email-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 4px 2px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.8438rem;
+  transition: color 0.15s ease;
+}
+.email-copy:hover { color: var(--accent-dark); }
+.email-copy svg { flex-shrink: 0; }
+.email-copy__text { text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
+.email-copy.is-copied { color: var(--accent-dark); }
+
 /* Buttons */
 .btn {
   display: inline-flex;

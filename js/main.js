@@ -100,4 +100,42 @@
       if (panel) panel.hidden = isOpen;
     });
   });
+
+  /* ---------- Email copy-to-clipboard fallback ---------- */
+  var emailCopyButtons = Array.prototype.slice.call(document.querySelectorAll('.email-copy'));
+  emailCopyButtons.forEach(function (btn) {
+    var textEl = btn.querySelector('.email-copy__text');
+    var defaultText = textEl ? textEl.textContent : '';
+    var email = btn.getAttribute('data-email') || defaultText;
+    var resetTimer;
+
+    btn.addEventListener('click', function () {
+      function showCopied() {
+        btn.classList.add('is-copied');
+        if (textEl) textEl.textContent = 'Copié !';
+        clearTimeout(resetTimer);
+        resetTimer = window.setTimeout(function () {
+          btn.classList.remove('is-copied');
+          if (textEl) textEl.textContent = defaultText;
+        }, 2000);
+      }
+
+      function fallbackCopy() {
+        var temp = document.createElement('textarea');
+        temp.value = email;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try { document.execCommand('copy'); showCopied(); } catch (e) {}
+        document.body.removeChild(temp);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(showCopied).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+    });
+  });
 })();
