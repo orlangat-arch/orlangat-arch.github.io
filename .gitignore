@@ -1,0 +1,10 @@
+# Fichiers sources non utilisés par le site déployé
+# (la version exploitée par le site est dans public/ et assets/)
+/CV_Orland_Angat.pdf
+/Photo1.jpg
+
+# Système d'exploitation / éditeurs
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
