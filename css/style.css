@@ -342,7 +342,13 @@ button { font: inherit; cursor: pointer; }
 .btn--lg { padding: 16px 30px; font-size: 1rem; }
 
 /* Hero visual — dashboard mockup */
-.hero__visual { display: flex; align-items: center; justify-content: center; }
+.hero__visual { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.hero__visual-caption {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--on-bg-soft);
+}
 .dashboard-mock {
   width: 100%;
   max-width: 460px;
