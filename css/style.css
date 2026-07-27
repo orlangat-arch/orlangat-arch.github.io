@@ -738,6 +738,13 @@ button { font: inherit; cursor: pointer; }
   font-size: 0.9688rem;
 }
 .certifications__list svg { color: var(--accent-dark); flex-shrink: 0; }
+.certifications__list a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 2px;
+}
+.certifications__list a:hover { color: var(--accent-dark); }
 
 @media (min-width: 640px) {
   .certifications__list { grid-template-columns: repeat(2, 1fr); }
